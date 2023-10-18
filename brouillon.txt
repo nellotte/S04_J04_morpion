@@ -1,0 +1,29 @@
+Classes à prévoir ?
+  Board ? (modelisation du plateau) 1 instance
+  Player : 2 instances
+  game : règles du jeu, à qui le tour, comment on commence, annonce du gagnant...
+  Case : 9 instances 
+     modéliser les 9 cases à jouer
+    chaque case à un statut  : vide/remplie
+
+
+
+  BOARD
+
+
+  PLAYER
+  2 players
+  @name
+  @status (my_turn / not_my_turn)
+
+
+  GAME
+  on demande le nom du joueur 1 qui sera représenté par O
+  on demande le nom du joueur 2 qui sera représenté par X
+  on initialise le plateau avec les 9 cases vides : on affiche le plateau 
+
+  Premier round :
+  on demande ou veux jouer le P1
+  on vérifie que la case est vide
+    si non : on lui dit "cette case est deja occupée, choisi une autre case"
+    si oui : on affiche O dns le plateau
