@@ -5,7 +5,7 @@ class BoardCase
 
   attr_accessor :state, :position
 
-  def initialize(case_id)
+  def initialize(position)
     @state = " " # Au démarrage, la case est vide, (X, O ou vide)
     @position = position
   end

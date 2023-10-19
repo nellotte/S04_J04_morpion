@@ -54,3 +54,40 @@ APPLICATION (boucle infinie)
 AUTRES BOUCLES A PREVOIR :
   - pour la saisie de la commande et l'affichage du menu. on sort de la boucle si "stop" ou si saisie valide (qui permet de continuer le jeu)
   
+
+
+    # def change_status_at_start(first_player) #au démarrage tous les joueurs sont a not_my_turn
+  #   #après le tirage au sort, le status change pour l'un des joueurs
+  #   if @name == first_player
+  #     @status = true
+  #   else
+  #     @status = false
+  #   end
+  # end
+
+    def ask_player1_name
+    print "Joueur des X, comment t'appelles-tu ?  "
+    puts ">"
+    @player1_name = gets.chomp  # Utilisez la variable d'instance.
+  end
+  
+  def ask_player2_name
+    print "Joueur des O, comment t'appelles-tu ?  "
+    puts ">"
+    @player2_name = gets.chomp  # Utilisez la variable d'instance.
+  end
+
+      def create_players
+      player1 = Player.new(game.ask_player1_name, "X", false)
+      player2 = Player.new(game.ask_player2_name, "O", false)
+    end
+
+
+      def decide_first_player
+    puts "Clique sur ENTER pour de l'ordinateur décide quel joueur commence"
+    puts ">"
+    gets.chomp
+    first_player = [@player1_name, @player2_name].sample
+    puts "Après un tirage au sort, c'est le joueur #{first_player} qui commence."
+    return first_player
+  end
