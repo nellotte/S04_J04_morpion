@@ -7,8 +7,8 @@ Classes à prévoir ?
     chaque case à un statut  : vide/remplie
 
 
-
   BOARD
+  Il y a 9 cases à jouer [a1, a2, a3, b1, b2, b3, c1, c2, c3] ==> la saisie doit estre ok en minuscule et majuscule
 
 
   PLAYER
@@ -18,12 +18,39 @@ Classes à prévoir ?
 
 
   GAME
-  on demande le nom du joueur 1 qui sera représenté par O
-  on demande le nom du joueur 2 qui sera représenté par X
-  on initialise le plateau avec les 9 cases vides : on affiche le plateau 
+  -on demande le nom du joueur 1 qui sera représenté par O
+  -on demande le nom du joueur 2 qui sera représenté par X
+  -on tire au sort (rand) qui sera le premier joueur à commencer
+  -on initialise le plateau avec les 9 cases vides : on affiche le plateau
+  -lance la class Application 
+  -affiche que la partie est finie
+  -affiche le nom du vinqueur
 
+APPLICATION (boucle infinie)
   Premier round :
-  on demande ou veux jouer le P1
-  on vérifie que la case est vide
-    si non : on lui dit "cette case est deja occupée, choisi une autre case"
-    si oui : on affiche O dns le plateau
+  on demande où veut jouer le P1
+    on met un gets.chomp :
+      il doit saisir les coordonnées de la case
+      s'il saisit des coordonnées incorrectes, on affiche "saisie incorrecte" et un nouveau gets.chomp
+      s'il saisit "stop" ==> il abandonne la partie et perd
+  s'il saisit des coordonnées correctes, on vérifie que la case est vide :
+    si non : on lui dit "cette case est deja occupée, choisi une autre case" et on boucle sur le get chomps
+    si oui : on affiche O dans le plateau
+      et on compte combien da case vide (tour a jouer) il reste
+  on vérifie si la partie est finie ou si elle continue 
+    la partie est fini s'il reste 0 case à jouer
+    si elle continie : on demande où le P2 veut jouer et on boucle pour vérifier si la case est vide ou non
+      puis on revérifie si la partie est finie
+  
+  si la partie est finie : on bascule sur la class Game
+  on indique "La partie est finie"
+  on indique " XXXXX à gagné le partie YYYYY est un gros loser"
+    ou bien "Partie nulle ! Vous etes tous les deux des losers!"
+
+  On sort de la boucle si : 
+    - il reste 0 case vide ==> il faut afficher s'il y a un vinqueur ou non
+    - si le joueur qui doit jouer indique "x" qu'il abandonne ==> il perd la partie
+
+AUTRES BOUCLES A PREVOIR :
+  - pour la saisie de la commande et l'affichage du menu. on sort de la boucle si "stop" ou si saisie valide (qui permet de continuer le jeu)
+  
